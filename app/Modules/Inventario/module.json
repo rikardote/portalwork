@@ -1,0 +1,8 @@
+{
+	"name": "Inventario",
+	"slug": "inventario",
+	"namespace": "Inventario",
+	"version": "1.0",
+	"description": "control de direcciones ip institucional",
+	"enabled": true
+}

@@ -1,0 +1,48 @@
+body { background-color: #F1F1F1; }
+.anchor { color: #4288CE;  width: 15em;  height: 3em; }
+a:hover, a:active, a:focus { text-decoration: none; color: #3C338D; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; }
+header { padding: 20px 0; margin-bottom: 20px; color: white; }
+
+footer { border-top: 1px solid #ccc; margin: 40px 0; padding-top: 20px; text-align: right; }
+
+article {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+}
+
+p.created_at { margin: 0; padding: 0; }
+article h2 { margin: 0 0 10px 0; padding: 0; }
+.fuente {font-size:xx-small;  color: white; }
+.fuentelibre {
+	font-size:xx-small; 
+	background-color: yellow; 
+}
+
+div.shadow {
+
+	border: 1px solid #ccc;
+	
+	}
+
+div.shadow:hover {
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	box-shadow: 0 0 15px rgba(0,0,0,0.5);
+	}
+.floating-menu {
+font-family: sans-serif;
+
+padding: 5px;;
+width: 130px;
+z-index: 100;
+position: fixed;
+}
+
+.floating-menu a, 
+.floating-menu h3 {
+font-size: 0.9em;
+display: block;
+margin: 0 0.5em;
+color: white;
+}

@@ -1,0 +1,24 @@
+.modal-content {
+  background-color: #0480be;
+  color: navy;
+}
+.modal-body {
+  background-color: #fff;
+
+}
+.panelColor{
+  color: white;
+}
+.panelColorGreen{
+  color: #337AB7;
+}
+.panelColorRed{
+  color: #B1103C;
+}
+body.modal-open .supreme-container{
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);
+}
