@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('styles')
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 @endsection
 @section('content')
 <nav class="floating-menu supreme-container">

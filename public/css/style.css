@@ -1,6 +1,6 @@
 body { background-color: #F1F1F1; }
 .anchor { color: #4288CE;  width: 15em;  height: 3em; }
-a:hover, a:active, a:focus { text-decoration: none; color: #3C338D; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; }
+a:hover, a:active, a:focus { text-decoration: none !important; color: #3C338D; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; }
 header { padding: 20px 0; margin-bottom: 20px; color: white; }
 
 footer { border-top: 1px solid #ccc; margin: 40px 0; padding-top: 20px; text-align: right; }
@@ -10,10 +10,14 @@ article {
     -moz-column-count: 3; /* Firefox */
     column-count: 3;
 }
+@font-face {
+    font-family: 'Roboto Condensed', sans-serif;
+    
+}
 
 p.created_at { margin: 0; padding: 0; }
 article h2 { margin: 0 0 10px 0; padding: 0; }
-.fuente {font-size:xx-small;  color: white; }
+.fuente {font-size:x-small;  color: white; }
 .fuentelibre {
 	font-size:xx-small; 
 	background-color: yellow; 
