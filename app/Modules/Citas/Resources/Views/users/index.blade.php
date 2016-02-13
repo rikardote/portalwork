@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_citas')
 
 @section('title', 'Usuarios')
 
@@ -30,7 +30,7 @@
 			@endforeach
 		</tbody>
 	</table>
-	@include('admin.partials.form-modal', ['title'=>'Agregar/Editar Usuarios'])
-	@include('admin.partials.confirmation_modal', ['title'=>'Confirmation Modal'])
+	@include('partials.form-modal', ['title'=>'Agregar/Editar Usuarios'])
+	
 @endsection
 

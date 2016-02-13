@@ -6,36 +6,12 @@
 	<br>
 	<br>
 	{!!  Form::model($cita, ['route' => ['admin.citas.update', $medico->slug, $date, $cita->id], 'method' => 'PATCH']) !!}
-		
-<div class="form-group">
-	{!! Form::label('fecha', 'Fecha') !!}
-	
-	{!! Form::text('fecha', fecha_dmy($cita->fecha), [
-		
-		'class' => 'form-control',
-		'placeholder' => 'Selecciona la fecha', 
-		'required',
-		'id' => 'fecha_inicial'
-	]) !!}
-</div>
-<div class="form-group">
-	{!! Form::label('horario', 'Horario') !!}
-	
-	{!! Form::text('horario', null, [
-		
-		'class' => 'form-control',
-		'placeholder' => 'Ingresa un horario', 
-		'required'
-	]) !!}
-</div>
+		@include('citas::citas.edit_form')
 
-{{ Form::hidden('medico_id', $medico->id) }}
-{{ Form::hidden('paciente_id', $cita->paciente->id) }}
-{{ Form::hidden('slug', $medico->slug) }}
-	 <div align="right">
-		{!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}
-	{!! Form::close() !!}
-	</div>
+	 	<div align="right">
+			{!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}
+			{!! Form::close() !!}
+		</div>
 
 @endif
 

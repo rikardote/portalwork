@@ -1,129 +1,64 @@
-@extends('layouts.app')
+@extends('layouts.app_citas')
 
 @section('title', 'Dr. ' . $medico->apellido_pat . ' ' . $medico->apellido_mat . ' ' . $medico->nombres . ' / ' . $medico->especialidad->name)
 
 @section('content')
-<section>
-    <div class="container spark-screen">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <div class="panel panel-primary">
-            <div class="panel-heading">@yield('title')</div>
-            <div class="panel-body">
-              <div id="alert"> @include('flash::message')</div>
-             
+ <div class="supreme-container"> 
+    <strong>Pacientes: </strong>
+	<br>
+	<br>
+	@if($pacientes->count() == 1)
 
-              <strong>Pacientes: </strong>
-				<br>
-				<br>
-			@if($pacientes->count() == 1)
+		@foreach($pacientes as $paciente)
+			{{ $paciente->nombres }} {{ $paciente->apellido_pat }} {{ $paciente->apellido_mat }} /{{ $paciente->tipo->code }}
+			<br>
 
-				@foreach($pacientes as $paciente)
-					{{ $paciente->nombres }} {{ $paciente->apellido_pat }} {{ $paciente->apellido_mat }} /{{ $paciente->tipo->code }}
-					<br>
-
-					{!! Form::open(['route' => ['admin.citas.store', $medico->slug, $date], 'method' => 'POST', 'class' => 'datepickerform']) !!}
-						
-					<div class="form-group">
-						{!! Form::label('fecha', 'Fecha') !!}
-						
-						{!! Form::text('fecha', fecha_dmy($date), [
-							
-							'class' => 'form-control',
-							'placeholder' => 'Selecciona la fecha', 
-							'required',
-							'id' => $paciente->id
-						]) !!}
-					</div>
-					<div class="form-group">
-						{!! Form::label('horario', 'Horario') !!}
-						
-						{!! Form::text('horario', null, [
-							
-							'class' => 'form-control',
-							'placeholder' => 'Ingresa un horario', 
-							'required'
-						]) !!}
-					</div>
-
-					{{ Form::hidden('medico_id', $medico->id) }}
-					{{ Form::hidden('paciente_id', $paciente->id) }}
-					{{ Form::hidden('slug', $medico->slug) }}
-					{!! Form::submit('Registrar', ['class' => 'btn btn-success']) !!}
-					{!! Form::close() !!}
-				@endforeach
-
+			{!! Form::open(['route' => ['admin.citas.store', $medico->slug, $date], 'method' => 'POST', 'class' => 'datepickerform']) !!}
 				
-			@else
-			@foreach($pacientes as $paciente)
-			 <a type="button" data-toggle="collapse" data-target="#{{$paciente->slug}}">
-			 		<li class="alert alert-info">
-			 			{{ $paciente->nombres }} {{ $paciente->apellido_pat }} {{ $paciente->apellido_mat }} /{{ $paciente->tipo->code }}	
-			 		</li>
-			 </a>
+				@include('citas::citas.form')
+			{!! Form::close() !!}
+		@endforeach
 
-			  <div id="{{$paciente->slug}}" class="collapse">
+		
+	@else
+	@foreach($pacientes as $paciente)
+	 <a type="button" data-toggle="collapse" data-target="#{{$paciente->slug}}">
+	 		<li class="alert alert-info">
+	 			{{ $paciente->nombres }} {{ $paciente->apellido_pat }} {{ $paciente->apellido_mat }} /{{ $paciente->tipo->code }}	
+	 		</li>
+	 </a>
 
-			   {!! Form::open(['route' => ['admin.citas.store', $medico->slug, $date], 'method' => 'POST', 'class' => 'datepickerform']) !!}
-						
-			<div class="form-group">
-				{!! Form::label('fecha', 'Fecha') !!}
-				
-				{!! Form::text('fecha', fecha_dmy($date), [
-					
-					'class' => 'form-control',
-					'placeholder' => 'Selecciona la fecha', 
-					'required',
-					'id' => $paciente->id
-				]) !!}
-			</div>
-			<div class="form-group">
-				{!! Form::label('horario', 'Horario') !!}
-				
-				{!! Form::text('horario', null, [
-					
-					'class' => 'form-control',
-					'placeholder' => 'Ingresa un horario', 
-					'required'
-				]) !!}
-			</div>
+	  <div id="{{$paciente->slug}}" class="collapse">
 
-			{{ Form::hidden('medico_id', $medico->id) }}
-			{{ Form::hidden('paciente_id', $paciente->id) }}
-			{{ Form::hidden('slug', $medico->slug) }}
-						{!! Form::submit('Registrar', ['class' => 'btn btn-success']) !!}
-					{!! Form::close() !!}
-			  </div>
+	 	{!! Form::open(['route' => ['admin.citas.store', $medico->slug, $date], 'method' => 'POST', 'class' => 'datepickerform']) !!}
+			@include('citas::citas.form')
+		{!! Form::close() !!}
+	  </div>
 
-			@endforeach
-			 <hr>
-			 <br>
+	@endforeach
+	 <hr>
+	 <br>
 
-			@endif
+	@endif
 
-			@if(isset($_GET['rfc']))
-				 <br>
-				 <div class="pull pull-right">
-					 <a data-url="{{ route('admin.pacientes.create', [$medico->slug , $date, $_GET['rfc']]) }}" class="load-form-modal fa fa-pencil " data-toggle ="modal" data-target='#form-modal'>
-						NUEVO PACIENTE CON RFC: {{strtoupper($_GET['rfc'])}}?
-					 </a> 
-				 </div>
-			 @else
-			 <br>
-			  <div class="pull pull-right">
-				 <a data-url="{{ route('admin.pacientes.create', [$medico->slug , $date, $rfc]) }}" class="load-form-modal fa fa-pencil" data-toggle ="modal" data-target='#form-modal'>
-				
-					NUEVO PACIENTE CON RFC: {{strtoupper($rfc)}}?
-				 </a> 
-				</div>
-			 @endif
+	@if(isset($_GET['rfc']))
+		 <br>
+		 <div class="pull pull-right">
+			 <a data-url="{{ route('admin.pacientes.create', [$medico->slug , $date, $_GET['rfc']]) }}" class="load-form-modal fa fa-pencil " data-toggle ="modal" data-target='#form-modal'>
+				NUEVO PACIENTE CON RFC: {{strtoupper($_GET['rfc'])}}?
+			 </a> 
+		 </div>
+	 @else
+	 <br>
+	  <div class="pull pull-right">
+		 <a data-url="{{ route('admin.pacientes.create', [$medico->slug , $date, $rfc]) }}" class="load-form-modal fa fa-pencil" data-toggle ="modal" data-target='#form-modal'>
+		
+			NUEVO PACIENTE CON RFC: {{strtoupper($rfc)}}?
+		 </a> 
+		</div>
+	 @endif
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
 @include('partials.form-modal', ['title'=>'Nuevo Paciente'])
 
@@ -131,7 +66,7 @@
 @endsection
 
 @section('js')
-  <script src="{{ asset('js/script.js') }}"></script>
+  
 	@foreach($pacientes as $paciente)
 			<script type="text/javascript">
 			  $(function() {

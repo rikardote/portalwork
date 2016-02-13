@@ -5,16 +5,7 @@
 	<?php $estado = 'Registrar';  ?>
 	{!! Form::open(['route' => 'citas.horarios.store', 'method' => 'POST']) !!}
 @endif
-      <div class="form-group">
-	{!! Form::label('name', 'Horario') !!}
-	
-	{!! Form::text('name', null, [
-		
-		'class' => 'form-control',
-		'placeholder' => 'Horario', 
-		'required'
-	]) !!}
-</div>
+     @include('citas::horarios.form')
 
 <div align="right">
      {!! Form::submit($estado, ['class' => 'btn btn-success']) !!}

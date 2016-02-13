@@ -42,3 +42,13 @@ body.modal-open .supreme-container{
 .chosen-choices{
      min-width: 200px;
  }
+ 
+footer { 
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 20px;
+  background-color: #E9EAED;
+  text-align: center;
+ }

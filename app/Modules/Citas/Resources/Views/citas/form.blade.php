@@ -24,3 +24,4 @@
 {{ Form::hidden('medico_id', $medico->id) }}
 {{ Form::hidden('paciente_id', $paciente->id) }}
 {{ Form::hidden('slug', $medico->slug) }}
+{!! Form::submit('Registrar', ['class' => 'btn btn-success']) !!}
