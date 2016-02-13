@@ -1,0 +1,8 @@
+{
+	"name": "Citas",
+	"slug": "citas",
+	"namespace": "Citas",
+	"version": "1.0",
+	"description": "Sistema para agendar citas medicas de especialidad",
+	"enabled": true
+}

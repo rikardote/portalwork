@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,9 +19,8 @@
 
 </head>
 <body>
-    <div class="supreme-container">
-        @include('partials._nav')
-    </div>
+    @yield('nav')
+        
     @yield('content')
     
 
@@ -32,5 +31,8 @@
     @yield('js');
   <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+     <script>
+        $('#alert').delay(2000).fadeOut(800)
+    </script>
 </body>
 </html>

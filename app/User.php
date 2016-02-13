@@ -28,4 +28,16 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Permiso');//->withTimestamps();
     }
+    public function especialidades()
+    {
+        return $this->belongsToMany('App\Modules\Citas\Http\Domain\Models\Especialidad')->withTimestamps();
+    }
+    public function admin() 
+    {
+        return $this->type === 'admin';
+    }
+    public function setnameAttribute($value)
+    {
+        $this->attributes['name'] = strtoupper($value);
+    }
 }

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Tijuana',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -159,7 +159,9 @@ return [
         Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider::class,
         Caffeinated\Modules\ModulesServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        
+        Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        Kamaln7\Toastr\ToastrServiceProvider::class,
 
     ],
 
@@ -206,10 +208,11 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-
+        'Flash'     => Laracasts\Flash\Flash::class,
         'Module' => Caffeinated\Modules\Facades\Module::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Toastr' => Kamaln7\Toastr\Facades\Toastr::class
 
 
     ],

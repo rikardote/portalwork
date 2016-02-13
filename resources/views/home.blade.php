@@ -19,3 +19,6 @@
     </div>
 </div>
 @endsection
+@section('nav')
+    @include('partials._nav')
+@endsection
