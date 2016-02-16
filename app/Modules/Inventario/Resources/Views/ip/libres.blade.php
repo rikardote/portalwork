@@ -43,11 +43,11 @@
 
 
 
-	<footer>
+	
 	    <div class="container supreme-container">
 	        &copy;  {{date('Y')}} ISSSTE BAJA CALIFORNIA
 	    </div>
-	</footer>
+	
 
 	@include('partials.form-modal', ['title'=>'Asignar Ip'])
 
